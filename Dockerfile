@@ -41,4 +41,5 @@ COPY --chown=bamboo:bamboo bamboo-update-capability.sh bamboo-update-capability.
 RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 1.8" ${JAVA_HOME}/bin/java
 
 COPY --chown=bamboo:bamboo runAgent.sh runAgent.sh
-ENTRYPOINT ["./runAgent.sh"]
+ENTRYPOINT ["/usr/bin/tini", "--"]
+CMD ["./runAgent.sh"]
