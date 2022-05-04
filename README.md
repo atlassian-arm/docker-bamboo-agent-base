@@ -3,6 +3,10 @@ To learn more about Bamboo, see: https://www.atlassian.com/software/bamboo
 
 If you are looking for **Bamboo Server Docker Image** it can be found [here](https://hub.docker.com/r/atlassian/bamboo-server/).
 
+# Contents
+
+[TOC]
+
 # Overview
 
 This Docker container makes it easy to get a Bamboo Remote Agent up and running. It is intended to be used as a base to build from, and as such
@@ -121,3 +125,13 @@ For product support, go to [support.atlassian.com](https://support.atlassian.com
 You can also visit the [Atlassian Data Center on
 Kubernetes](https://community.atlassian.com/t5/Atlassian-Data-Center-on/gh-p/DC_Kubernetes)
 forum for discussion on running Atlassian Data Center products in containers.
+
+# Changelog
+
+For a detailed list of changes to the Docker image configuration see [the Git
+commit history](https://bitbucket.org/atlassian-docker/docker-bamboo-agent-base/commits/).
+
+# License
+
+Copyright © 2020 Atlassian Corporation Pty Ltd.
+Licensed under the Apache License, Version 2.0.
