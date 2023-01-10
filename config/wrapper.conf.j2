@@ -27,6 +27,8 @@ wrapper.java.library.path.1=../lib
 wrapper.java.additional.1=-Dbamboo.home={{ bamboo_agent_home }}
 wrapper.java.additional.2=-Dbamboo.agent.ignoreServerCertName={{ ignore_server_cert_name | default('false') }}
 wrapper.java.additional.3=-Dbamboo.allow.empty.artifacts={{ allow_empty_artifacts | default('false') }}
+wrapper.java.additional.4=-DDISABLE_AGENT_AUTO_CAPABILITY_DETECTION=true
+wrapper.java.additional.5=-Dbamboo.agent.ephemeral.approval.turnedoff=true
 #wrapper.java.additional.4=-Dlog4j.configuration=
 #wrapper.java.additional.4=-agentlib:yjpagent
 

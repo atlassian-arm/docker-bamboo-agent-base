@@ -86,7 +86,7 @@ Example of extending the agent base image by Maven and Git:
 * Modify or replace the [Jinja](https://jinja.palletsprojects.com/) templates
   under `config`; _NOTE_: The files must have the `.j2` extensions. However you
   don't have to use template variables if you don't wish.
-* Build the new image with e.g: `docker build --tag my-agent-image .`
+* Build the new image with e.g: `docker build --build-arg BAMBOO_VERSION=X.Y.Z --tag my-agent-image .`
 * Optionally push to a registry, and deploy.
 
 # Issue tracker
