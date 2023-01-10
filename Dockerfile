@@ -15,8 +15,9 @@ ENV BAMBOO_AGENT_INSTALL_DIR                /opt/atlassian/bamboo
 
 WORKDIR $BAMBOO_AGENT_HOME
 
-CMD ["/entrypoint.py"]
-ENTRYPOINT ["/usr/bin/tini", "--"]
+ENV KUBE_NUM_EXTRA_CONTAINERS 0
+CMD ["/usr/bin/tini", "--", "/entrypoint.py"]
+ENTRYPOINT ["/wait-for-extra-containers.sh"]
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -58,6 +59,7 @@ COPY entrypoint.py \
      probe-common.sh \
      probe-startup.sh \
      probe-readiness.sh \
+     wait-for-extra-containers.sh \
      shared-components/image/entrypoint_helpers.py  /
 COPY shared-components/support                      /opt/atlassian/support
 COPY config/*                                       /opt/atlassian/etc/
