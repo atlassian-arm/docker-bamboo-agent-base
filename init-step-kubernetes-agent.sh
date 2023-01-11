@@ -1,7 +1,11 @@
 #!/bin/bash -l
 set -x
 
-if [ -f '/var/run/secrets/kubernetes.io/serviceaccount/namespace' ]; then
+# this is a temporary solution that is in alignment with the existing PBC way of working - when using the new API, the capabilities would not be added, instead, we would pass properties via wrapper -> agent
+source /bamboo-update-capability.sh "system.isolated.docker" $IMAGE_ID
+source /bamboo-update-capability.sh "system.isolated.docker.for" $RESULT_ID
+
+if [[ $KUBE_NUM_EXTRA_CONTAINERS -ne 0 ]]; then
     retries=0
     # 30 retries per minute times 20 minutes = loop 600 times
     # it's so high because of docker downloads of side containers.
@@ -22,6 +26,10 @@ if [ -f '/var/run/secrets/kubernetes.io/serviceaccount/namespace' ]; then
             break
         fi
     done
+fi
+
+if [ -f '/buildeng-custom/setup.sh' ]; then
+    source /buildeng-custom/setup.sh
 fi
 
 exec "$@"
