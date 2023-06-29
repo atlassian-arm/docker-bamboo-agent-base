@@ -16,7 +16,7 @@ BAMBOO_EPHEMERAL_AGENT_DATA_KEY = 'bamboo_ephemeral_agent_data'
 BAMBOO_EPHEMERAL_AGENT_DATA = env.get(BAMBOO_EPHEMERAL_AGENT_DATA_KEY)
 BAMBOO_EPHEMERAL_AGENT_DATA_MAP = {}
 if BAMBOO_EPHEMERAL_AGENT_DATA:
-    BAMBOO_EPHEMERAL_AGENT_DATA_MAP = {env.split("=")[0].lower(): env.split("=")[1] for env in BAMBOO_EPHEMERAL_AGENT_DATA.split("#")}
+    BAMBOO_EPHEMERAL_AGENT_DATA_MAP = {env.split("=")[0]: env.split("=")[1] for env in BAMBOO_EPHEMERAL_AGENT_DATA.split("#")}
 
 
 BAMBOO_SERVER_KEY = 'bamboo_server'
